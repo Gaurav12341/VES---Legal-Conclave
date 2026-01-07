@@ -1,0 +1,187 @@
+*{
+  font-weight: bold;
+}
+.courtroom {
+  /* Glassmorphic card: stronger blur + slightly more opaque for readability */
+  background: rgba(255, 255, 255, 0.24);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22); */
+  /* slightly bolder base text for better readability */
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.courtroom:hover {
+  transform: translateY(-2px);
+  /* box-shadow: 0 14px 48px rgba(0, 0, 0, 0.24); */
+}
+
+.courtroom-title {
+  text-align: center;
+  color: rgba(10, 10, 10, 0.95);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  /* remove full-width rule so a long line doesn't appear across cards */
+  border-bottom: none;
+  position: relative;
+}
+
+.courtroom-title::after {
+  /* short centered divider under heading (subtle) */
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 6px;
+  width: 36%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 1px;
+}
+
+.courtroom-content {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.courtroom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+.courtroom-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: rgba(10, 10, 10, 0.9);
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.22);
+  color: rgba(10, 10, 10, 0.95);
+  font-size: 14px;
+  transition: all 0.16s ease;
+  width: 100%;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.32);
+  background-color: rgba(255, 255, 255, 0.30);
+  /* box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12); */
+}
+
+.main-textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.22);
+  color: rgba(10, 10, 10, 0.95);
+  font-size: 25px;
+  font-weight: 500;
+  resize: vertical;
+  transition: all 0.16s ease;
+  font-family: inherit;
+}
+
+.main-textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.32);
+  background-color: rgba(255, 255, 255, 0.30);
+  /* box-shadow: 0 8px 26px rgba(0, 0, 0, 0.12); */
+}
+
+.main-textarea::placeholder {
+  color: rgba(10, 10, 10, 0.48);
+  font-size: 16px;
+}
+
+.courtroom-bottom {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.courtroom-bottom .input-group {
+  max-width: 100%;
+}
+
+.courtroom-bottom .input-group input {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .courtroom {
+    min-height: 350px;
+    padding: 15px;
+  }
+
+  .courtroom-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .courtroom-content {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .main-textarea {
+    min-height: 120px;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .input-group input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .courtroom {
+    padding: 18px;
+  }
+
+  .courtroom-title {
+    font-size: 20px;
+  }
+
+  .main-textarea {
+    font-size: 17px;
+    min-height: 140px;
+  }
+}
